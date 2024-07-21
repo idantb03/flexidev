@@ -1,0 +1,93 @@
+<div *ngIf="characterDetails$ | async as details; else loading" class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+  <!-- Back Button -->
+  <div class="mb-6">
+    <button (click)="goBack()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+      Back
+    </button>
+  </div>
+
+  <h1 class="text-3xl font-bold mb-6">{{ details.character.name }}</h1>
+
+  <div class="space-y-6">
+    <!-- Basic Information Card -->
+    <div class="bg-gray-100 p-4 rounded-lg">
+      <h2 class="text-xl font-semibold mb-3">Basic Information</h2>
+      <table class="w-full">
+        <tbody>
+          <tr><td class="py-1 font-medium">Height:</td><td>{{ details.character.height }}</td></tr>
+          <tr><td class="py-1 font-medium">Mass:</td><td>{{ details.character.mass }}</td></tr>
+          <tr><td class="py-1 font-medium">Hair Color:</td><td>{{ details.character.hair_color }}</td></tr>
+          <tr><td class="py-1 font-medium">Skin Color:</td><td>{{ details.character.skin_color }}</td></tr>
+          <tr><td class="py-1 font-medium">Eye Color:</td><td>{{ details.character.eye_color }}</td></tr>
+          <tr><td class="py-1 font-medium">Birth Year:</td><td>{{ details.character.birth_year }}</td></tr>
+          <tr><td class="py-1 font-medium">Gender:</td><td>{{ details.character.gender }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Homeworld Table -->
+    <div>
+      <h2 class="text-xl font-semibold mb-3">Homeworld</h2>
+      <table class="w-full border-collapse border border-gray-300">
+        <thead>
+          <tr><th class="border border-gray-300 p-2 bg-gray-100">Name</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="border border-gray-300 p-2">{{ details.homeworld.name }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Films Table -->
+    <div>
+      <h2 class="text-xl font-semibold mb-3">Films</h2>
+      <table class="w-full border-collapse border border-gray-300">
+        <thead>
+          <tr><th class="border border-gray-300 p-2 bg-gray-100">Title</th></tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let film of details.films">
+            <td class="border border-gray-300 p-2">{{ film.title }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Vehicles and Starships Tables -->
+    <div class="flex flex-col md:flex-row gap-6">
+      <div class="flex-1">
+        <h2 class="text-xl font-semibold mb-3">Vehicles</h2>
+        <table class="w-full border-collapse border border-gray-300">
+          <thead>
+            <tr><th class="border border-gray-300 p-2 bg-gray-100">Name</th></tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let vehicle of details.vehicles">
+              <td class="border border-gray-300 p-2">{{ vehicle.name }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="flex-1">
+        <h2 class="text-xl font-semibold mb-3">Starships</h2>
+        <table class="w-full border-collapse border border-gray-300">
+          <thead>
+            <tr><th class="border border-gray-300 p-2 bg-gray-100">Name</th></tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let starship of details.starships">
+              <td class="border border-gray-300 p-2">{{ starship.name }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+    <p class="text-center text-gray-600">Loading character details...</p>
+  </div>
+</ng-template>
