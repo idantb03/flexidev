@@ -1,0 +1,15 @@
+<div *ngIf="films$ | async as films; else loading" class="p-8">
+  <h2>Star Wars Films</h2>
+  <ul class="films-list">
+    <li *ngFor="let film of films" class="film-item border my-4 rounded-md p-4">
+      <strong>{{ film.title }}</strong>
+      <ul class="film-details">
+        <li>Episode: {{ film.episode_id }}</li>
+        <li>Release Date: {{ film.release_date }}</li>
+        <li>Director: {{ film.director }}</li>
+        <li>Producer: {{ film.producer }}</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<ng-template #loading>Loading...</ng-template>

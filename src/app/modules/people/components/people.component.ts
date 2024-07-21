@@ -5,11 +5,20 @@ import { Observable, BehaviorSubject, switchMap } from 'rxjs';
 import { PeopleService } from '../../../core/services/people/people.service';
 import { People } from '../../../core/models/people/people.model';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-people',
   standalone: true,
-  imports: [AsyncPipe, NgIf, NgForOf, NzPaginationModule],
+  imports: [
+    AsyncPipe,
+    NgIf,
+    NgForOf,
+    NzPaginationModule,
+    MatCardModule,
+    MatGridListModule
+  ],
   templateUrl: './people.component.html',
   styleUrls: ['./people.component.css']
 })

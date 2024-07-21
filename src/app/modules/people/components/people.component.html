@@ -1,7 +1,7 @@
 <div *ngIf="people$ | async as people; else loading" class=" p-8 ">
   <h2>Star Wars Characters</h2>
   <ul class="people-list">
-    <li *ngFor="let person of people" class=" person-item cursor-pointer hover:border " (click)="onCharacterClick(person.url)">
+    <li *ngFor="let person of people" class=" person-item cursor-pointer hover:shadow-sm border my-4 rounded-md p-4 " (click)="onCharacterClick(person.url)">
       <strong>{{ person.name }}</strong>
       <ul class="person-details">
         <li>Height: {{ person.height }}</li>

@@ -7,6 +7,7 @@ import { provideRouter } from '@angular/router';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { routes } from './app.routes';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     AppComponent,
     PeopleComponent,
-    SharedModule
+    SharedModule,
+    CoreModule
   ],
   providers: [
     provideRouter(routes),
