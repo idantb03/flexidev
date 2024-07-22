@@ -1,12 +1,18 @@
-<div class="w-64 bg-gray-800 text-white h-full">
-  <div class="p-4">
-    <ul class="mt-6">
-      <li>
-        <button (click)="goPeople()" class="block py-2 px-4 hover:bg-gray-700">People</button>
-      </li>
-      <li>
-        <button (click)="goFilms()"  class="block py-2 px-4 hover:bg-gray-700">Films</button>
-      </li>
-    </ul>
+<div class="w-64 bg-gray-800 text-white h-full flex flex-col">
+  <div class="p-6">
+    <nav>
+      <ul class="space-y-2">
+        <li>
+          <button (click)="goPeople()" class="w-full text-left py-2 px-4 rounded transition duration-150 ease-in-out hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600">
+            People
+          </button>
+        </li>
+        <li>
+          <button (click)="goFilms()" class="w-full text-left py-2 px-4 rounded transition duration-150 ease-in-out hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600">
+            Films
+          </button>
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>
